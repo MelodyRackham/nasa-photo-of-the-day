@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
 import PhotoCard from './Components/PhotoCard';
+import { Container, Row, Col } from 'reactstrap';
 
 function App() {
   const [nasaData, setNasaData] = useState({
@@ -25,15 +26,21 @@ function App() {
   }, []);
 
   return (
-    <div className='nasaPhoto'>
-      <PhotoCard
-        key={nasaData.id}
-        date={nasaData.date}
-        explanation={nasaData.explanation}
-        title={nasaData.title}
-        url={nasaData.url}
-      />
-    </div>
+    <Container>
+      <Row>
+        <Col>
+          <div className='nasaPhoto'>
+            <PhotoCard
+              key={nasaData.id}
+              date={nasaData.date}
+              explanation={nasaData.explanation}
+              title={nasaData.title}
+              url={nasaData.url}
+            />
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
